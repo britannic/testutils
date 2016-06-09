@@ -46,7 +46,7 @@ func TestFailures(t *testing.T) {
 		t.SkipNow()
 	}
 
-	Assert(t, True() == false, "We have a problem Houston!", true)
+	Assert(t, !True(), "We have a problem Houston!", true)
 	Equals(t, false, true)
 	NotEquals(t, 0, 0)
 	OK(t, err)
