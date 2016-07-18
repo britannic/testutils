@@ -2,6 +2,7 @@ package testutils
 
 import (
 	"fmt"
+	"os"
 	"path/filepath"
 	"reflect"
 	"runtime"
@@ -51,4 +52,9 @@ func OK(tb testing.TB, err error) {
 		fmt.Printf("\033[31m%s:%d: unexpected error: %s\033[39m\n\n", filepath.Base(file), line, err.Error())
 		tb.Fail()
 	}
+}
+
+// IsDrone is true when code is being tested on drone.io
+func IsDrone() bool {
+	return os.Getenv("DRONE") == "true"
 }
